@@ -1,0 +1,21 @@
+pipeline {
+    agent{
+        label 'vm-slave'
+    }
+
+    stages {
+
+        stage('before-build'){
+          steps {
+            sh "printenv"
+            sh "git log --oneline --graph"
+          }
+        }
+
+        stage('Docker Build') {
+            steps {
+                sh 'docker build -f Dockerfile -t hello-boathouse:latest .'
+            }
+        }
+    }
+}
