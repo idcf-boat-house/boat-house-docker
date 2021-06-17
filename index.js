@@ -1,5 +1,6 @@
 var express = require('express');
 var app = express();
+var os = require('os');
 
 app.get('/', function (req, res) {
   console.log('Hello Boathouse v1 from ... %s', os.hostname );
